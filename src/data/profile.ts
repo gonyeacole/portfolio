@@ -26,4 +26,26 @@ export const profile = {
     'HTML / CSS',
     'React',
   ],
+  education: [
+    {
+      years: '2019–2020',
+      title: 'UX/UI Design Intensive',
+      org: 'California College of the Arts',
+    },
+    {
+      years: '2019',
+      title: 'Visual Systems & Branding',
+      org: 'AIGA Design Studio',
+    },
+    {
+      years: '2015–2018',
+      title: 'B.F.A. Graphic Design',
+      org: 'Pacific Northwest College of Art',
+    },
+    {
+      years: '2014',
+      title: 'Foundations of Typography',
+      org: 'Portland Community College',
+    },
+  ],
 }
