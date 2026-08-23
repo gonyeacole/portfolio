@@ -41,7 +41,7 @@ export function HomePage({ onNavigate }: { onNavigate: (view: View) => void }) {
             rel="noreferrer"
             className="group block text-center"
           >
-            <h2 className="text-4xl font-bold uppercase leading-[0.95] tracking-tight sm:text-6xl">
+            <h2 className="text-4xl uppercase leading-[0.95] sm:text-6xl">
               {project.title}
             </h2>
             <p className="mt-2 text-xs uppercase tracking-[0.15em] text-ink/40 transition-colors group-hover:text-accent">
@@ -51,7 +51,7 @@ export function HomePage({ onNavigate }: { onNavigate: (view: View) => void }) {
         ))}
       </div>
 
-      <div className="mt-16 flex flex-wrap items-baseline justify-center gap-x-4 gap-y-2 text-3xl font-bold tabular-nums tracking-tight sm:mt-20 sm:gap-x-8 sm:text-6xl">
+      <div className="mt-16 flex flex-wrap items-baseline justify-center gap-x-4 gap-y-2 text-3xl tabular-nums sm:mt-20 sm:gap-x-8 sm:text-6xl">
         <span>({h}</span>
         <span className="text-ink/30">:</span>
         <span>{m}</span>
@@ -86,7 +86,7 @@ export function HomePage({ onNavigate }: { onNavigate: (view: View) => void }) {
       </div>
 
       <div className="mt-16 text-center sm:mt-20">
-        <h3 className="text-2xl font-bold uppercase tracking-tight sm:text-4xl">
+        <h3 className="text-2xl uppercase sm:text-4xl">
           {profile.name}™ {new Date().getFullYear()}
         </h3>
         <p className="mt-1 text-sm uppercase tracking-[0.1em] text-ink/50">
@@ -100,7 +100,7 @@ export function HomePage({ onNavigate }: { onNavigate: (view: View) => void }) {
           <p>{profile.name}</p>
         </div>
         <div>
-          <p>Space Mono</p>
+          <p>JetBrains Mono</p>
           <p>Regular</p>
         </div>
         <div>
