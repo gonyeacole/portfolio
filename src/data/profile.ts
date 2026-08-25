@@ -1,6 +1,6 @@
 // Edit this file to personalize the site.
 export const profile = {
-  name: 'Alex Rivera',
+  name: 'CG Design Co.',
   role: 'Product & Brand Designer',
   tagline: 'I design brands, products, and the details in between.',
   location: 'Based in Portland, OR',
@@ -8,9 +8,9 @@ export const profile = {
     "I'm a designer who works across brand identity, product design, and the occasional side of front-end code. Over the past several years I've helped startups and design studios turn rough ideas into visual systems that actually ship.",
     "My focus is on clarity — reducing a problem to its simplest, most honest form before adding anything back. Outside of client work I make small tools, write about design systems, and collect way too many typefaces.",
   ],
-  email: 'hello@example.com',
-  handle: '@alexrivera',
-  website: 'alexrivera.design',
+  email: 'hello@cgdesign.co',
+  handle: '@cgdesignco',
+  website: 'cgdesign.co',
   resumeUrl: '#',
   social: [
     { label: 'GitHub', href: 'https://github.com/' },

@@ -13,7 +13,7 @@ export function HomePage({ onNavigate }: { onNavigate: (view: View) => void }) {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="flex items-center justify-between border-b border-line px-6 py-4 text-sm text-ink/70 sm:px-10">
-        <span>{profile.name}'s Design Archive</span>
+        <span>[{profile.name}]</span>
         <span>{dateParts}</span>
       </header>
 
