@@ -1,117 +1,60 @@
-import { useEffect, useState } from 'react'
 import { profile } from '../data/profile'
-import { projects } from '../data/projects'
 import type { View } from '../App'
 
-const timeFormatter = new Intl.DateTimeFormat('en-US', {
-  hour12: false,
-  hour: '2-digit',
-  minute: '2-digit',
-  second: '2-digit',
-})
+const dateParts = new Intl.DateTimeFormat('en-US', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+}).format(new Date())
 
-const pages: { n: number; label: string; view: View }[] = [
-  { n: 1, label: 'Work', view: 'home' },
-  { n: 2, label: 'About', view: 'about' },
-  { n: 3, label: 'Contact', view: 'contact' },
-]
+const tags = [profile.name, profile.role, profile.location.replace('Based in ', '')]
 
 export function HomePage({ onNavigate }: { onNavigate: (view: View) => void }) {
-  const [now, setNow] = useState(() => new Date())
-
-  useEffect(() => {
-    const id = window.setInterval(() => setNow(new Date()), 1000)
-    return () => window.clearInterval(id)
-  }, [])
-
-  const [h, m, s] = timeFormatter.format(now).split(':')
-
   return (
-    <div>
-      <p className="text-center text-xs uppercase tracking-[0.2em] text-ink/40">
-        Selected Work — {profile.name}
-      </p>
+    <div className="flex min-h-screen flex-col">
+      <header className="flex items-center justify-between border-b border-line px-6 py-4 text-sm text-ink/70 sm:px-10">
+        <span>{profile.name}'s Design Archive</span>
+        <span>{dateParts}</span>
+      </header>
 
-      <div className="mt-14 flex flex-col items-center gap-10 sm:gap-14">
-        {projects.map((project) => (
-          <a
-            key={project.slug}
-            href={project.href ?? '#'}
-            target="_blank"
-            rel="noreferrer"
-            className="group block text-center"
-          >
-            <h2 className="text-4xl uppercase leading-[0.95] sm:text-6xl">
-              {project.title}
-            </h2>
-            <p className="mt-2 text-xs uppercase tracking-[0.15em] text-ink/40 transition-colors group-hover:text-accent">
-              {project.category} — {project.year}
-            </p>
-          </a>
-        ))}
-      </div>
+      <main className="flex flex-1 flex-col items-center justify-center gap-8 px-6 py-20 text-center sm:py-28">
+        <h1 className="text-6xl font-black uppercase leading-none tracking-tight sm:text-8xl lg:text-9xl">
+          Portfolio
+        </h1>
 
-      <div className="mt-16 flex flex-wrap items-baseline justify-center gap-x-4 gap-y-2 text-3xl tabular-nums sm:mt-20 sm:gap-x-8 sm:text-6xl">
-        <span>({h}</span>
-        <span className="text-ink/30">:</span>
-        <span>{m}</span>
-        <span className="text-ink/30">:</span>
-        <span>{s})</span>
-      </div>
-
-      <div className="mt-16 flex flex-col items-center gap-3 sm:mt-20">
-        <div className="flex gap-3">
-          {pages.map((page) => (
-            <button
-              key={page.view}
-              onClick={() => onNavigate(page.view)}
-              aria-label={page.label}
-              className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold transition-colors ${
-                page.view === 'home'
-                  ? 'bg-ink text-paper'
-                  : 'bg-ink/10 text-ink hover:bg-ink/20'
-              }`}
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-line px-5 py-2 text-xs uppercase tracking-[0.08em] text-ink/80 sm:text-sm"
             >
-              {page.n}
-            </button>
-          ))}
-        </div>
-        <div className="flex gap-3 text-[10px] uppercase tracking-[0.1em] text-ink/40">
-          {pages.map((page) => (
-            <span key={page.view} className="w-9 text-center">
-              {page.label}
+              {tag}
             </span>
           ))}
         </div>
-      </div>
 
-      <div className="mt-16 text-center sm:mt-20">
-        <h3 className="text-2xl uppercase sm:text-4xl">
-          {profile.name}™ {new Date().getFullYear()}
-        </h3>
-        <p className="mt-1 text-sm uppercase tracking-[0.1em] text-ink/50">
-          {profile.role}
-        </p>
-      </div>
+        <nav className="flex gap-6 text-xs uppercase tracking-[0.1em]">
+          <button
+            onClick={() => onNavigate('about')}
+            className="text-ink/50 underline decoration-transparent underline-offset-4 transition-colors hover:text-ink hover:decoration-ink/40"
+          >
+            About
+          </button>
+          <button
+            onClick={() => onNavigate('contact')}
+            className="text-ink/50 underline decoration-transparent underline-offset-4 transition-colors hover:text-ink hover:decoration-ink/40"
+          >
+            Contact
+          </button>
+        </nav>
+      </main>
 
-      <footer className="mt-16 grid grid-cols-2 gap-y-4 border-t border-line pt-4 text-[10px] uppercase tracking-[0.06em] text-ink/45 sm:grid-cols-4">
-        <div>
-          <p>Selected Work</p>
-          <p>{profile.name}</p>
-        </div>
-        <div>
-          <p>JetBrains Mono</p>
-          <p>Regular</p>
-        </div>
-        <div>
-          <p>Based In</p>
-          <p>{profile.location.replace('Based in ', '')}</p>
-        </div>
-        <div className="text-left sm:text-right">
-          <p>
-            00{projects.length}/00{projects.length}
-          </p>
-        </div>
+      <footer className="flex flex-col items-center gap-2 border-t border-line px-6 py-4 text-xs text-ink/60 sm:flex-row sm:justify-between sm:text-sm">
+        <span>{profile.handle}</span>
+        <span>{profile.website}</span>
+        <a href={`mailto:${profile.email}`} className="transition-colors hover:text-ink">
+          {profile.email}
+        </a>
       </footer>
     </div>
   )

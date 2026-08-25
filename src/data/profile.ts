@@ -9,6 +9,8 @@ export const profile = {
     "My focus is on clarity — reducing a problem to its simplest, most honest form before adding anything back. Outside of client work I make small tools, write about design systems, and collect way too many typefaces.",
   ],
   email: 'hello@example.com',
+  handle: '@alexrivera',
+  website: 'alexrivera.design',
   resumeUrl: '#',
   social: [
     { label: 'GitHub', href: 'https://github.com/' },
