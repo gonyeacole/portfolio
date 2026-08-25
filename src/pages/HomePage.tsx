@@ -1,4 +1,5 @@
 import { profile } from '../data/profile'
+import { Footer } from '../components/Footer'
 import type { View } from '../App'
 
 const tags = [profile.name, profile.role, profile.location.replace('Based in ', '')]
@@ -53,13 +54,7 @@ export function HomePage({ onNavigate }: { onNavigate: (view: View) => void }) {
         </nav>
       </main>
 
-      <footer className="flex flex-col items-center gap-2 border-t border-line px-6 py-4 text-xs text-ink/60 sm:flex-row sm:justify-between sm:text-sm">
-        <span>{profile.handle}</span>
-        <span>{profile.website}</span>
-        <a href={`mailto:${profile.email}`} className="transition-colors hover:text-ink">
-          {profile.email}
-        </a>
-      </footer>
+      <Footer className="px-6 py-4 sm:px-10" />
     </div>
   )
 }
