@@ -19,7 +19,7 @@ export function HomePage({ onNavigate }: { onNavigate: (view: View) => void }) {
 
       <main className="flex flex-1 flex-col items-center justify-center gap-8 px-6 py-20 text-center sm:py-28">
         <h1 className="text-6xl font-black uppercase leading-none tracking-tight sm:text-8xl lg:text-9xl">
-          Portfolio
+          {profile.company}
         </h1>
 
         <div className="flex flex-wrap items-center justify-center gap-3">

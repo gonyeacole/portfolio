@@ -1,6 +1,7 @@
 // Edit this file to personalize the site.
 export const profile = {
-  name: 'CG Design Co.',
+  name: 'Cole Gonyea',
+  company: 'CG Design Co.',
   role: 'Product & Brand Designer',
   tagline: 'I design brands, products, and the details in between.',
   location: 'Based in Portland, OR',
