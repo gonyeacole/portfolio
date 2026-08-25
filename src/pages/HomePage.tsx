@@ -1,20 +1,24 @@
 import { profile } from '../data/profile'
 import type { View } from '../App'
 
-const dateParts = new Intl.DateTimeFormat('en-US', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-}).format(new Date())
-
 const tags = [profile.name, profile.role, profile.location.replace('Based in ', '')]
 
 export function HomePage({ onNavigate }: { onNavigate: (view: View) => void }) {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="flex items-center justify-between border-b border-line px-6 py-4 text-sm text-ink/70 sm:px-10">
-        <span>{dateParts}</span>
-        <span>{profile.name}</span>
+        <button
+          onClick={() => onNavigate('home')}
+          className="uppercase tracking-[0.08em] transition-colors hover:text-ink"
+        >
+          Work
+        </button>
+        <button
+          onClick={() => onNavigate('contact')}
+          className="uppercase tracking-[0.08em] transition-colors hover:text-ink"
+        >
+          Contact
+        </button>
       </header>
 
       <main className="flex flex-1 flex-col items-center justify-center gap-8 px-6 py-20 text-center sm:py-28">
