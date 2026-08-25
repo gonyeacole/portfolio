@@ -13,13 +13,13 @@ export function HomePage({ onNavigate }: { onNavigate: (view: View) => void }) {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="flex items-center justify-between border-b border-line px-6 py-4 text-sm text-ink/70 sm:px-10">
-        <span>[{profile.name}]</span>
         <span>{dateParts}</span>
+        <span>{profile.name}</span>
       </header>
 
       <main className="flex flex-1 flex-col items-center justify-center gap-8 px-6 py-20 text-center sm:py-28">
         <h1 className="text-6xl font-black uppercase leading-none tracking-tight sm:text-8xl lg:text-9xl">
-          {profile.company}
+          [{profile.company}]
         </h1>
 
         <div className="flex flex-wrap items-center justify-center gap-3">
