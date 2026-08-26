@@ -7,16 +7,16 @@ const tags = [profile.name, profile.role, profile.location.replace('Based in ', 
 export function HomePage({ onNavigate }: { onNavigate: (view: View) => void }) {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="flex items-center justify-between border-b border-line px-6 py-4 text-sm text-ink/70 sm:px-10">
+      <header className="flex items-center justify-between px-6 py-4 text-sm text-ink sm:px-10">
         <button
           onClick={() => onNavigate('home')}
-          className="uppercase tracking-[0.08em] transition-colors hover:text-ink"
+          className="uppercase tracking-[0.08em]"
         >
           Work
         </button>
         <button
           onClick={() => onNavigate('contact')}
-          className="uppercase tracking-[0.08em] transition-colors hover:text-ink"
+          className="uppercase tracking-[0.08em]"
         >
           Contact
         </button>
